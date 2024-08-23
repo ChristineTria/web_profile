@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>Personal Profile</title>
+</head>
+<body>
+
+   
+    <div class="sidenav">
+        <img src="assets/img/profile-picture.png" alt="Profile Picture">
+        <h1>Christine Ann</h1>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+    </div>
+
+    
+    <div class="main">
+        
+        <section id="home" class="section">
+            <div class="image-column">
+              
+            </div>
+            <div class="info-column">
+                <h2>Hi! I'm Christine Ann.</h2>
+                <h3>College Student</h3>
+                <a href="#about" class="home-button">Learn More About Me</a>
+            </div>
+        </section>
+
+        
+        <section id="about" class="section">
+            <div class="info-column">
+                <h1>ABOUT ME</h1>
+                <label>My name is Christine Ann G. Tria. I am a fourth-year BSIT student.</label>
+                <ul class="about-bullets">
+                    <li><b>Gender: </b>Female</li>
+                    <li><b>Birthdate: </b>May 26, 2003</li>
+                    <li><b>Birthplace: </b>Calapan City</li>
+                    <li><b>Age: </b>21 years old</li>
+                    <li><b>Contact Number: </b>+63912 345 6789</li>
+                    <li><b>Email: </b>christineanntria26@gmail.com</li>
+                    <li><b>Hobbies:</b>Watching tiktok, reading AU (Alternate Universe) & playing earning apps</li>
+                </ul>
+            </div>
+            <div class="image-column">
+                <img src="assets/img/about.png" alt="About Me Image">
+            </div>
+        </section>
+
+        
+        <section id="education" class="section">
+            <h1>EDUCATIONAL BACKGROUND</h1>
+            <div class="education-gallery">
+                <div class="education-item">
+                    <img src="assets/img/education-elem.png" alt="Education Elementary">
+                    <p class="caption"><b>Magdalena Umali Suyon Memorial School - Elementary</b></p>
+                    <p>S.Y 2009 - 2015</p>
+                </div>
+                <div class="education-item">
+                    <img src="assets/img/education-jhs.png" alt="Education Junior Highschool">
+                    <p class="caption"><b>St. Joseph Academy - Junior High School </b></p>
+                    <p>S.Y 2015 - 2019</p>
+                </div>
+                <div class="education-item">
+                    <img src="assets/img/education-shs.png" alt="Education Senior Highschool">
+                    <p class="caption"><b>Innovative College of Science & Technology - Senior High School</b></p>
+                    <p>S.Y 2019 - 2021</p>
+                </div>
+                <div class="education-item">
+                    <img src="assets/img/education-college.png" alt="Education College">
+                    <p class="caption"><b>Innovative College of Science & Technology - College</b></p>
+                    <p>S.Y 2021 - Present</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+   
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.sidenav a');
+    const sections = document.querySelectorAll('section');
+
+    function handleScroll() {
+        const scrollPosition = window.scrollY + 200;
+
+        
+        links.forEach(link => link.classList.remove('active'));
+
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            const id = section.getAttribute('id');
+            const link = document.querySelector(`.sidenav a[href="#${id}"]`);
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                link?.classList.add('active');
+            }
+        });
+    }
+
+    
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+});
+
+    </script>
+
+</body>
+</html>
